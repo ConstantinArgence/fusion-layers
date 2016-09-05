@@ -42,7 +42,7 @@ var MapsLib = {
 
 
   searchRadius:       805,            //in meters ~ 1/2 mile
-  defaultZoom:        12,             //zoom level when map is loaded (bigger is more zoomed in)
+  defaultZoom:        10,             //zoom level when map is loaded (bigger is more zoomed in)
   addrMarkerImage:    'images/blue-pushpin.png', // set to empty '' to hide searched address marker
   currentPinpoint:    null,
 
@@ -77,7 +77,7 @@ var MapsLib = {
     MapsLib.searchrecords = null;
 
     //MODIFY to match 3-bucket GFT values of pre-checked polygon1  - see also further below
-    MapsLib.setDemographicsLabels("$25&ndash;50k", "$50&ndash;100k", "$100&ndash;215k");
+    MapsLib.setDemographicsLabels("$0&ndash;2000", "2000&ndash;6000", "+6000");
 
     // MODIFY if needed: defines background polygon1 and polygon2 layers
     MapsLib.polygon1 = new google.maps.FusionTablesLayer({
