@@ -28,7 +28,7 @@ var MapsLib = {
 
   //*New Fusion Tables Requirement* API key. found at https://code.google.com/apis/console/
   //*Important* this key is for demonstration purposes. please register your own.
-  googleApiKey:       "AIzaSyAujS5cr5sJzC4IJdGk4tO5YYqINOgX0eg",
+  googleApiKey:       "AIzaSyBKpejYB-VvoHPbr7_z8GVE9bR1jdfI8NY",
 
   //name of the location column in your Fusion Table.
   //NOTE: if your location column name has spaces in it, surround it with single quotes
@@ -342,7 +342,7 @@ self.whereClause += " AND 'Km' <= '" + $("#Km-selected-end").html() + "'";
 
     var sql = encodeURIComponent(queryStr.join(" "));
     $.ajax({
-     url: "https://www.googleapis.com/fusiontables/v3/query?sql="+sql+"&key="+MapsLib.googleApiKey,
+     url: "https://www.googleapis.com/fusiontables/v2/query?sql="+sql+"&key="+MapsLib.googleApiKey,
       dataType: "json"
     }).done(function (response) {
       if (callback) callback(response);
