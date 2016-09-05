@@ -13,17 +13,17 @@
 // Enable the visual refresh
 google.maps.visualRefresh = true;
 
-var Map = new google.maps.Map || {};
-var Map = {
+var MapsLib = MapsLib || {};
+var MapsLib = {
 
   //Setup section - put your Fusion Table details here
   //Using the v1 Fusion Tables API. See https://developers.google.com/fusiontables/docs/v1/migration_guide for more info
 
   //the encrypted Table ID of your Fusion Table (found under File => About)
   //NOTE: numeric IDs will be deprecated soon
-  fusionTableId:      "12NKH0-cu-AwfpfEiD83u9aGJOXzYKveqkMF0HHwq", // database
+  fusionTableId:      "12NKH0-cu-AwfpfEiD83u9aGJOXzYKveqkMF0HHwq", // Point layer of CT schools
 
-  polygon1TableID:    "1BZkfBKRXVqoJi9SxYFWrHCyhzlMC_8dQ3SYZoirq", //commmunes
+  polygon1TableID:    "1BZkfBKRXVqoJi9SxYFWrHCyhzlMC_8dQ3SYZoirq", //Median Household Income in CT Towns, ACS est 2008-12
   polygon2TableID:    "1pigpdu2e4L1WADaoSblfMbKVH-UMLY7Ej9MtvIG9", //Unemployment in CT towns, ACS est 2008-12
 
   //*New Fusion Tables Requirement* API key. found at https://code.google.com/apis/console/
@@ -134,18 +134,40 @@ var Map = {
     MapsLib.searchRadius = $("#search_radius").val();
 
     var whereClause = MapsLib.locationColumn + " not equal to ''";
+    
 
     //-----custom filters-------
+    $("#Km-slider").slider({
+    orientation: "horizontal",
+    range: true,
+    min: 0,
+    max: 60,
+    values: [0, 60],
+    step: 5,
+    slide: function (event, ui) {
+        $("#Km-selected-start").html(ui.values[0]);
+        $("#Km-selected-end").html(ui.values[1]);
+    },
+    stop: function(event, ui) {
+      self.doSearch();
+    }
+});
+       
 
-    //-- NUMERICAL OPTION - to display and filter a column of numerical data in your table, use this instead
-    var type_column = "'TypeNum'";
-    var searchType = type_column + " IN (-1,";
-    if ( $("#cbType1").is(':checked')) searchType += "1,";
-    if ( $("#cbType2").is(':checked')) searchType += "2,";
-    if ( $("#cbType3").is(':checked')) searchType += "3,";
-    if ( $("#cbType4").is(':checked')) searchType += "4,";
-    if ( $("#cbType5").is(':checked')) searchType += "5,";
-    whereClause += " AND " + searchType.slice(0, searchType.length - 1) + ")";
+     //-----checkbox
+        var type_column = "'Type'";
+var searchType = type_column + " IN (-1,";
+if ( $("#cbType1").is(':checked')) searchType += "1,";
+if ( $("#cbType2").is(':checked')) searchType += "2,";
+if ( $("#cbType3").is(':checked')) searchType += "3,";
+if ( $("#cbType4").is(':checked')) searchType += "4,";
+if ( $("#cbType5").is(':checked')) searchType += "5,";
+if ( $("#cbType6").is(':checked')) searchType += "6,";
+if ( $("#cbType7").is(':checked')) searchType += "7,";
+self.whereClause += " AND " + searchType.slice(0, searchType.length - 1) + ")";
+
+self.whereClause += " AND 'Km' >= '" + $("#Km-selected-start").html() + "'";
+self.whereClause += " AND 'Km' <= '" + $("#Km-selected-end").html() + "'";
     //-------end of custom filters--------
 
     if (address != "") {
@@ -323,7 +345,7 @@ var Map = {
 
     var sql = encodeURIComponent(queryStr.join(" "));
     $.ajax({
-      url: "https://www.googleapis.com/fusiontables/v1/query?sql="+sql+"&key="+MapsLib.googleApiKey,
+     url: "https://www.googleapis.com/fusiontables/v2/query?sql="+sql+"&key="+googleApiKey,
       dataType: "json"
     }).done(function (response) {
       if (callback) callback(response);
