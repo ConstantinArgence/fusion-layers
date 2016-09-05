@@ -207,7 +207,8 @@
     var fusionTableId;
     var polygon1TableID;
     var polygon2TableID;
-    $ function () {
+    $(function() {
+      MapsLib.initialize();
       map = new google.maps.Map(document.getElementById('map-canvas'), {
  fusionTableId:      "12NKH0-cu-AwfpfEiD83u9aGJOXzYKveqkMF0HHwq", // database
  polygon1TableID:    "1BZkfBKRXVqoJi9SxYFWrHCyhzlMC_8dQ3SYZoirq", //commmunes
