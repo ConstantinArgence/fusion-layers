@@ -207,16 +207,8 @@
 
     
     
-    $(function() {
-          var myMap = new MapsLib({
-             
-            fusionTableId:      "12NKH0-cu-AwfpfEiD83u9aGJOXzYKveqkMF0HHwq",
-           
-            googleApiKey:       "AIzaSyBKpejYB-VvoHPbr7_z8GVE9bR1jdfI8NY",
-            locationColumn:     "Latitude",
-            map_center:         [46.71062860299483, 1.1878453027343117],
-            locationScope:      "Indre"
-          });
+     $(function() {
+      MapsLib.initialize();
       
       var autocomplete = new google.maps.places.Autocomplete(document.getElementById('search_address'));
 
