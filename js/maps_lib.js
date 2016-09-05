@@ -21,21 +21,21 @@ var MapsLib = {
 
   //the encrypted Table ID of your Fusion Table (found under File => About)
   //NOTE: numeric IDs will be deprecated soon
-  fusionTableId:      "1FMjVRb16OqlkeodL7onaQ5A7jamtpSY0TmHaa-WQ", // Point layer of CT schools
+  fusionTableId:      "12NKH0-cu-AwfpfEiD83u9aGJOXzYKveqkMF0HHwq", // database
 
   polygon1TableID:    "1BZkfBKRXVqoJi9SxYFWrHCyhzlMC_8dQ3SYZoirq", //commmunes
-  polygon2TableID:    "1Q2x_e-In4-648ggO0KUfCzVHRlyfAAg43ZS8Y8r_", //Unemployment in CT towns, ACS est 2008-12
+  polygon2TableID:    "1pigpdu2e4L1WADaoSblfMbKVH-UMLY7Ej9MtvIG9", //Unemployment in CT towns, ACS est 2008-12
 
   //*New Fusion Tables Requirement* API key. found at https://code.google.com/apis/console/
   //*Important* this key is for demonstration purposes. please register your own.
-  googleApiKey:       "AIzaSyDIevSvpV-ONb4Pf15VUtwyr_zZa7ccwq4",
+  googleApiKey:       "AIzaSyAujS5cr5sJzC4IJdGk4tO5YYqINOgX0eg",
 
   //name of the location column in your Fusion Table.
   //NOTE: if your location column name has spaces in it, surround it with single quotes
   //example: locationColumn:     "'my location'",
-  locationColumn:     "Address",
+  locationColumn:     "Geo",
 
-  map_centroid:       new google.maps.LatLng(46.7416, 1.6465), //center that your map defaults to
+  map_centroid:       new google.maps.LatLng(46.74169386912707, 1.6465245019530617), //center that your map defaults to
   locationScope:      "france",      //geographical area appended to all address searches
   recordName:         "result",       //for showing number of results
   recordNamePlural:   "results",
@@ -83,7 +83,7 @@ var MapsLib = {
     MapsLib.polygon1 = new google.maps.FusionTablesLayer({
       query: {
         from:   MapsLib.polygon1TableID,
-        select: "geometry"
+        select: "Geo"
       },
       styleId: 2,
       templateId: 2
@@ -92,7 +92,7 @@ var MapsLib = {
     MapsLib.polygon2 = new google.maps.FusionTablesLayer({
       query: {
         from:   MapsLib.polygon2TableID,
-        select: "geometry"
+        select: "Geo"
       },
       styleId: 2,
       templateId: 2
