@@ -23,7 +23,7 @@ var MapsLib = {
   //NOTE: numeric IDs will be deprecated soon
   fusionTableId:      "1FMjVRb16OqlkeodL7onaQ5A7jamtpSY0TmHaa-WQ", // Point layer of CT schools
 
-  polygon1TableID:    "1J4icqZYUUWrjbd5QrlJWBv9Ax5LeV745AnWhNTl3", //Median Household Income in CT Towns, ACS est 2008-12
+  polygon1TableID:    "1BZkfBKRXVqoJi9SxYFWrHCyhzlMC_8dQ3SYZoirq", //commmunes
   polygon2TableID:    "1Q2x_e-In4-648ggO0KUfCzVHRlyfAAg43ZS8Y8r_", //Unemployment in CT towns, ACS est 2008-12
 
   //*New Fusion Tables Requirement* API key. found at https://code.google.com/apis/console/
@@ -35,7 +35,7 @@ var MapsLib = {
   //example: locationColumn:     "'my location'",
   locationColumn:     "Address",
 
-  map_centroid:       new google.maps.LatLng(41.7682,-72.684), //center that your map defaults to
+  map_centroid:       new google.maps.LatLng(46.74169386912707, 1.6465245019530617), //center that your map defaults to
   locationScope:      "connecticut",      //geographical area appended to all address searches
   recordName:         "result",       //for showing number of results
   recordNamePlural:   "results",
