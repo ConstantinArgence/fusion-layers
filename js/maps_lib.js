@@ -345,7 +345,7 @@ self.whereClause += " AND 'Km' <= '" + $("#Km-selected-end").html() + "'";
 
     var sql = encodeURIComponent(queryStr.join(" "));
     $.ajax({
-     url: "https://www.googleapis.com/fusiontables/v2/query?sql="+sql+"&key="+googleApiKey,
+     url: "https://www.googleapis.com/fusiontables/v3/query?sql="+sql+"&key="+googleApiKey,
       dataType: "json"
     }).done(function (response) {
       if (callback) callback(response);
