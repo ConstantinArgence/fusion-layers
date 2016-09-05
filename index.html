@@ -37,67 +37,79 @@
       <div class='col-md-4'>
         <p>View <a href="https://github.com/jackdougherty/fusion-point-polygon-legend">fusion-point-polygon-legend code on GitHub</a>, with polygon layer dynamic legend. Based on <a href='http://derekeder.com/searchable_map_template/'>Searchable Map Template v1.3</a> by <a href='http://derekeder.com'>Derek Eder</a> with <a href='http://support.google.com/fusiontables/answer/2571232?hl=en&ref_topic=1652595'>Google Fusion Tables</a></p>
         <div class='well'>
-          <h4>
-            Address <small>(<a id='find_me' href='#'>find me</a>)</small>
-          </h4>
-          <p>
-            <input class='form-control' id='search_address' placeholder='Enter an address or an intersection' type='text' />
-          </p>
-          <p>
-            <label>
-              within
-              <select id='search_radius'>
-                <option value='400'>2 blocks</option>
-                <option value='805'>1/2 mile</option>
-                <option value='1610'>1 mile</option>
-                <option value='3220'>2 miles</option>
-              </select>
-            </label>
-          </p>
+          <!--Container droit -->
+            
+       <!--slidebar perimetre --> 
+             <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.min.css"/>
+             <h4>
+              Modifier le périmètre de recherche <small>
+                  <span id='Km-selected-start'>0 km</span>
+    -             <span id='Km-selected-end'>60 km</span>
+                 </small>
+              </h4>
+              <div id='Km-slider'></div>
+              <span class='pull-left'>0 km</span>
+              <span class='pull-right'>60 km</span>
+</br>
 
-          <!--MODIFY Point layer legend heading, labels (such as Interdistrict), and colors (green, blue, yellow, red, purple) to match your data -->
+    <!--Filtre checkbox -->
           <h4>
-            CT Schools 2014-15 (point layer)
-          </h4>
-          <ul class='inputs-list unstyled'>
-            <li>
-              <label class='checkbox inline'>
-                <input type='checkbox' id='cbType1' />
-                <span class='filter-box filter-blue'></span>
-                District Schools
-              </label>
-            </li>
-            <li>
-              <label class='checkbox inline'>
-                <input type='checkbox' id='cbType2' />
-                <span class='filter-box filter-green'></span>
-                Interdistrict Magnets
-              </label>
-            </li>
-            <li>
-              <label class='checkbox inline'>
-                <input type='checkbox' id='cbType3' />
-                <span class='filter-box filter-red'></span>
-                Charter Schools
-              </label>
-            </li>
-            <li>
-              <label class='checkbox inline'>
-                <input type='checkbox' id='cbType4' />
-                <span class='filter-box filter-purple'></span>
-                Technical Schools
-              </label>
-            </li>
-            <li>
-              <label class='checkbox inline'>
-                <input type='checkbox' id='cbType5' />
-                <span class='filter-box filter-yellow'></span>
-                Other Public Schools
-              </label>
-            </li>
-          </ul>
-          <!--MODIFY Polygon layers legend heading, labels (such as Polygon layer 1) to match your data, and related items in maps_lib.js file -->
-          <h4>Census Est 2008-12 (polygon layers)</h4>
+  Etablissement
+</h4>
+<ul class='inputs-list unstyled'>
+  <li>
+    <label class='checkbox inline'>
+      <input type='checkbox' id='cbType1' />
+      <span class='filter-box filter-yellow'></span>
+      Attraction
+    </label>
+  </li>
+  <li>
+    <label class='checkbox inline'>
+      <input type='checkbox' id='cbType2' />
+      <span class='filter-box filter-green'></span>
+      Camping
+    </label>
+  </li>
+  <li>
+    <label class='checkbox inline'>
+      <input type='checkbox' id='cbType3' />
+      <span class='filter-box filter-green'></span>
+      Chambres d'Hotes
+    </label>
+  </li>
+    <li>
+    <label class='checkbox inline'>
+      <input type='checkbox' id='cbType4' />
+      <span class='filter-box filter-green'></span>
+      Hotel
+    </label>
+  </li>
+    <li>
+    <label class='checkbox inline'>
+      <input type='checkbox' id='cbType5' />
+      <span class='filter-box filter-green'></span>
+      Hotel-Restaurant
+    </label>
+  </li>
+    <li>
+    <label class='checkbox inline'>
+      <input type='checkbox' id='cbType6' />
+      <span class='filter-box filter-green'></span>
+     Restaurant
+    </label>
+  </li>
+    <li>
+    <label class='checkbox inline'>
+      <input type='checkbox' id='cbType7' />
+      <span class='filter-box filter-green'></span>
+      Tabac
+    </label>
+  </li>
+</ul>
+<!--filtering polygons info-->
+<!--MODIFY Polygon layers legend heading, labels (such as Polygon layer 1) to match your data, and related items in maps_lib.js file -->
+          <h4>Indices de populations</h4>
           <ul class='inputs-list unstyled'>
             <ol id='polygon-legend'>
               <li id='legend-left'></li>
@@ -108,13 +120,13 @@
             <li>
               <label class='radio inline'>
                 <input type='radio' name='types' id='rbPolygon1' checked /><!--MODIFY to remove default checked button-->
-                Median Household Income
+                Population
               </label>
             </li>
             <li>
               <label class='radio inline'>
                 <input type='radio' name='types' id='rbPolygon2' />
-                Unemployment Rate
+                Axes de circulation
               </label>
             </li>
             <li>
@@ -124,26 +136,50 @@
               </label>
             </li>
           </ul>
-          <br />
-          <a class='btn btn-primary' id='search' href='#'>
-            <i class='glyphicon glyphicon-search'></i>
-            Search
-          </a>
-          <a class='btn btn-default' id='reset' href='#'>
-            <i class='glyphicon glyphicon-repeat'></i>
-            Reset
-          </a>
-        </div>
-        <div class='alert alert-info' id='result_box' ><strong id='result_count'></strong></div>
-      </div>
-      <div class='col-md-8'>
-        <noscript>
-          <div class='alert alert-info'>
-            <h4>Your JavaScript is disabled</h4>
-            <p>Please enable JavaScript to view the map.</p>
+            <br />
+<h4> <!--barre d'adresse -->
+              Adresse <small>(<a id='find_me' href='#'>trouvez moi</a>)</small>
+            </h4>
+            <p>
+              <input class='form-control' id='search_address' placeholder='tapez une adresse' type='text' />
+            </p>
+            <p>
+              <!--radius -->
+              <label>
+                sur
+                <select id='search_radius'>
+                  <option value='10000'>10 km</option>
+                  <option value='20000'>20 km</option>
+                  <option value='30000'>30 km</option
+                  <option value='40000'>40 km</option>
+                </select>
+              </label>
+            </p>
+            </br>
+</br>
+            <!--bouton recherche et reset -->
+            <a class='btn btn-primary' id='search' href='#'>
+              <i class='glyphicon glyphicon-search'></i>
+              Search
+            </a>
+            <a class='btn btn-default' id='reset' href='#'>
+              <i class='glyphicon glyphicon-repeat'></i>
+              Reset
+            </a>
           </div>
-        </noscript>
-        <div id='map_canvas'></div>
+          <div class='alert alert-info' id='result_box' ><strong id='result_count'></strong></div>
+        </div>
+        <div class='col-md-8'>
+          <noscript>
+            <div class='alert alert-info'>
+              <h4>Your JavaScript is disabled</h4>
+              <p>Please enable JavaScript to view the map.</p>
+            </div>
+          </noscript>
+          <div id='map_canvas'></div>
+          
+          
+         
         <!--MODIFY link to publicly display your Google Fusion Tables data table, source, and text-->
         <p>Sources: <a href='https://www.google.com/fusiontables/DataSource?docid=1FMjVRb16OqlkeodL7onaQ5A7jamtpSY0TmHaa-WQ#rows:id=1'>View CT Public Schools 2014-15</a> from <a href='https://data.ct.gov/Education/Education-Directory/9k2y-kqxn'>CT Open Data</a>; <a href='https://www.google.com/fusiontables/DataSource?docid=1J4icqZYUUWrjbd5QrlJWBv9Ax5LeV745AnWhNTl3#rows:id=1'>view Median Household Income</a> and <a href="https://www.google.com/fusiontables/DataSource?docid=1Q2x_e-In4-648ggO0KUfCzVHRlyfAAg43ZS8Y8r_#rows:id=1">view Unemployment data</a> from <a href="http://factfinder2.census.gov/">US Census, American Community Survey 5-year estimates, 2008-12</a>; Map boundaries from <a href="http://magic.lib.uconn.edu/connecticut_data.html#boundaries">MAGIC at UConn Libraries</a></br>
           Visualization by <a href='http://commons.trincoll.edu/dataviz' target='_blank'>DataViz at Trinity College</a>, based on <a href='http://derekeder.com/searchable_map_template/' target='_blank'>Searchable Map Template</a> by <a href='http://derekeder.com' target='_blank'>Derek Eder</a></p>
