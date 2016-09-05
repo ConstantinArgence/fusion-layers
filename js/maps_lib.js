@@ -120,12 +120,9 @@ var MapsLib = {
     // MODIFY if needed: shows background polygon layer depending on which checkbox is selected
     if ($("#rbPolygon1").is(':checked')) {
       MapsLib.polygon1.setMap(map);
-      MapsLib.setDemographicsLabels("$25&ndash;50k", "$50&ndash;100k", "$100&ndash;215k"); //MODIFY to match 3 buckets in GFT
+      MapsLib.setDemographicsLabels("0&ndash;2000", "$2000&ndash;6000", "+6000"); //MODIFY to match 3 buckets in GFT
     }
-    if ($("#rbPolygon2").is(':checked')) {
-      MapsLib.polygon2.setMap(map);
-      MapsLib.setDemographicsLabels("2&ndash;8%", "8&ndash;14%", "14&ndash;21%"); //MODIFY to match 3 buckets in GFT
-    }
+    
     if ($("#rbPolygonOff").is(':checked')) {   //the Off statement does not contain a setMap
       MapsLib.setDemographicsLabels("&ndash;", "&ndash;", "&ndash;");
     }
