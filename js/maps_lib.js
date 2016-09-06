@@ -126,8 +126,7 @@ var MapsLib = {
     
 
     //-----custom filters-------
-    var self = this;
-   this.fusionTableId =  "12NKH0-cu-AwfpfEiD83u9aGJOXzYKveqkMF0HHwq",
+    var self = fusionTableId;
    
     $("#Km-slider").slider({
     orientation: "horizontal",
