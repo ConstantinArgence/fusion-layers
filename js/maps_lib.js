@@ -24,7 +24,7 @@ var MapsLib = {
   fusionTableId:      "12NKH0-cu-AwfpfEiD83u9aGJOXzYKveqkMF0HHwq", // Database
 
   polygon1TableID:    "1BZkfBKRXVqoJi9SxYFWrHCyhzlMC_8dQ3SYZoirq", //Communes
-  polygon2TableID:    "1pigpdu2e4L1WADaoSblfMbKVH-UMLY7Ej9MtvIG9", //Lines
+ 
 
   //*New Fusion Tables Requirement* API key. found at https://code.google.com/apis/console/
   //*Important* this key is for demonstration purposes. please register your own.
@@ -79,20 +79,11 @@ var MapsLib = {
     //MODIFY to match 3-bucket GFT values of pre-checked polygon1  - see also further below
     MapsLib.setDemographicsLabels("$0&ndash;2000", "2000&ndash;6000", "+6000");
 
-    // MODIFY if needed: defines background polygon1 and polygon2 layers
+    // MODIFY if needed: defines background polygon1 
     MapsLib.polygon1 = new google.maps.FusionTablesLayer({
       query: {
         from:   MapsLib.polygon1TableID,
         select: "col3"
-      },
-      styleId: 2,
-      templateId: 2
-    });
-
-    MapsLib.polygon2 = new google.maps.FusionTablesLayer({
-      query: {
-        from:   MapsLib.polygon2TableID,
-        select: "col4"
       },
       styleId: 2,
       templateId: 2
@@ -122,10 +113,7 @@ var MapsLib = {
       MapsLib.polygon1.setMap(map);
       MapsLib.setDemographicsLabels("0&ndash;2000", "2000&ndash;6000", "+6000"); //MODIFY to match 3 buckets in GFT
     }
-    if ($("#rbPolygon2").is(':checked')) {   //the Off statement does not contain a setMap
-      MapsLib.setDemographicsLabels("&ndash;", "&ndash;", "&ndash;");
-    }
-    
+  
     if ($("#rbPolygonOff").is(':checked')) {   //the Off statement does not contain a setMap
       MapsLib.setDemographicsLabels("&ndash;", "&ndash;", "&ndash;");
     }
@@ -164,6 +152,9 @@ if ( $("#cbType4").is(':checked')) searchType += "4,";
 if ( $("#cbType5").is(':checked')) searchType += "5,";
 if ( $("#cbType6").is(':checked')) searchType += "6,";
 if ( $("#cbType7").is(':checked')) searchType += "7,";
+if ( $("#cbType8").is(':checked')) searchType += "8,";
+if ( $("#cbType9").is(':checked')) searchType += "9,";
+if ( $("#cbType10").is(':checked')) searchType += "10,";
 whereClause += " AND " + searchType.slice(0, searchType.length - 1) + ")";
 
 whereClause += " AND 'Km' >= '" + $("#Km-selected-start").html() + "'";
@@ -247,8 +238,6 @@ whereClause += " AND 'Km' <= '" + $("#Km-selected-end").html() + "'";
       MapsLib.searchrecords.setMap(null);
     if (MapsLib.polygon1 != null)
       MapsLib.polygon1.setMap(null);
-    if (MapsLib.polygon2 != null)
-      MapsLib.polygon2.setMap(null);
     if (MapsLib.polygonOFF !=null)
       MapsLib.polygonOff.setMap(null);
     if (MapsLib.addrMarker != null)
