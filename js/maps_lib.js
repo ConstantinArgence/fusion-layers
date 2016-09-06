@@ -166,8 +166,8 @@ if ( $("#cbType6").is(':checked')) searchType += "6,";
 if ( $("#cbType7").is(':checked')) searchType += "7,";
 whereClause += " AND " + searchType.slice(0, searchType.length - 1) + ")";
 
-whereClause += " AND 'Km' >= '" + $("#Km-selected-start").html() + "'";
-whereClause += " AND 'Km' <= '" + $("#Km-selected-end").html() + "'";
+fusionTableId.whereClause += " AND 'Km' >= '" + $("#Km-selected-start").html() + "'";
+fusionTableId.whereClause += " AND 'Km' <= '" + $("#Km-selected-end").html() + "'";
     //-------end of custom filters--------
 
     if (address != "") {
