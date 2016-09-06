@@ -77,7 +77,8 @@ var MapsLib = {
     MapsLib.searchrecords = null;
 
     //MODIFY to match 3-bucket GFT values of pre-checked polygon1  - see also further below
-    MapsLib.setDemographicsLabels("$0&ndash;2000", "2000&ndash;6000", "+6000");
+    MapsLib.setDemographicsLabels ("0&ndash;500", "500&ndash;900",  "900&ndash;2000", "2000&ndash;10000", "+10000");;
+
 
     // MODIFY if needed: defines background polygon1 
     MapsLib.polygon1 = new google.maps.FusionTablesLayer({
