@@ -149,7 +149,7 @@ var MapsLib = {
         $("#Km-selected-end").html(ui.values[1]);
     },
     stop: function(event, ui) {
-     MapsLib.doSearch();
+     fusionTableId.doSearch();
     }
 });
        
