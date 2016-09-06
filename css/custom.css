@@ -7,14 +7,10 @@ a:hover { color: #4B58A6; }
 /*empty comment
 
 /* MODIFY polygon legend colors (left, middle, right) to match 3-color buckets in your Google Fusion Table. See also http://ColorBrewer2.org*/
-#legend-1 { border-top: 10px solid #CFF3FC; }
-#legend-2 { border-top: 10px solid #B5D6EA; }
+#legend-1 { border-top: 10px solid #CFF3FC; } 
 #legend-3 { border-top: 10px solid #9CB9D9; }
-#legend-4 { border-top: 10px solid #839CC7; }
 #legend-5 { border-top: 10px solid #6A7FB6; }
-#legend-6 { border-top: 10px solid #5062A4; }
 #legend-7 { border-top: 10px solid #374593; }
-#legend-8 { border-top: 10px solid #1E2881; }
 #legend-9 { border-top: 10px solid #050C70; }
 
 #polygon-legend { background: none; clear: both; margin-bottom: 0.3em; padding: 8px 0 0 0; margin: 5px 0 0 0; list-style: none; }
