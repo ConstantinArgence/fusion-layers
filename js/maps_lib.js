@@ -33,9 +33,9 @@ var MapsLib = {
   //name of the location column in your Fusion Table.
   //NOTE: if your location column name has spaces in it, surround it with single quotes
   //example: locationColumn:     "'my location'",
-  locationColumn:     "col8",
+  locationColumn:     "Latitude",
 
-  map_centroid:       new google.maps.LatLng(46.74169386912707, 1.6465245019530617), //center that your map defaults to
+  map_centroid:       new google.maps.LatLng(46.701211,1.2147244), //center that your map defaults to
   locationScope:      "france",      //geographical area appended to all address searches
   recordName:         "result",       //for showing number of results
   recordNamePlural:   "results",
@@ -83,7 +83,7 @@ var MapsLib = {
     MapsLib.polygon1 = new google.maps.FusionTablesLayer({
       query: {
         from:   MapsLib.polygon1TableID,
-        select: "col2"
+        select: "col3"
       },
       styleId: 2,
       templateId: 2
@@ -97,7 +97,7 @@ var MapsLib = {
       styleId: 2,
       templateId: 2
     });
-
+    
     //reset filters
     $("#search_address").val(MapsLib.convertToPlainString($.address.parameter('address')));
     var loadRadius = MapsLib.convertToPlainString($.address.parameter('radius'));
@@ -121,6 +121,9 @@ var MapsLib = {
     if ($("#rbPolygon1").is(':checked')) {
       MapsLib.polygon1.setMap(map);
       MapsLib.setDemographicsLabels("0&ndash;2000", "2000&ndash;6000", "+6000"); //MODIFY to match 3 buckets in GFT
+    }
+    if ($("#rbPolygon2").is(':checked')) {   //the Off statement does not contain a setMap
+      MapsLib.setDemographicsLabels("&ndash;", "&ndash;", "&ndash;");
     }
     
     if ($("#rbPolygonOff").is(':checked')) {   //the Off statement does not contain a setMap
@@ -146,7 +149,7 @@ var MapsLib = {
         $("#Km-selected-end").html(ui.values[1]);
     },
     stop: function(event, ui) {
-      self.doSearch();
+     fusionTableId.doSearch();
     }
 });
        
@@ -161,10 +164,10 @@ if ( $("#cbType4").is(':checked')) searchType += "4,";
 if ( $("#cbType5").is(':checked')) searchType += "5,";
 if ( $("#cbType6").is(':checked')) searchType += "6,";
 if ( $("#cbType7").is(':checked')) searchType += "7,";
-self.whereClause += " AND " + searchType.slice(0, searchType.length - 1) + ")";
+whereClause += " AND " + searchType.slice(0, searchType.length - 1) + ")";
 
-self.whereClause += " AND 'Km' >= '" + $("#Km-selected-start").html() + "'";
-self.whereClause += " AND 'Km' <= '" + $("#Km-selected-end").html() + "'";
+whereClause += " AND 'Km' >= '" + $("#Km-selected-start").html() + "'";
+whereClause += " AND 'Km' <= '" + $("#Km-selected-end").html() + "'";
     //-------end of custom filters--------
 
     if (address != "") {

@@ -193,7 +193,8 @@
     <!--script perimetre -->
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
     <script type="text/javascript" src="js/jquery.address.js"></script>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBKpejYB-VvoHPbr7_z8GVE9bR1jdfI8NY&libraries=geometry,places"></script> <!-- request Maps API + API key-->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBKpejYB-VvoHPbr7_z8GVE9bR1jdfI8NY&libraries=geometry,places&v=3.25"></script> <!-- request Maps API + API key-->
+   <script type="text/javascript" src="js/jquery.geocomplete.min.js"></script>
     <script type="text/javascript" src="js/maps_lib.js"></script>
     <script type='text/javascript'>
     //<![CDATA[
@@ -205,23 +206,10 @@
     }).resize();
 
     
-    var map;
-    var fusionTableId;
-    var polygon1TableID;
-    var polygon2TableID;
-    $(function() {
+    
+     $(function() {
       MapsLib.initialize();
-      map = new google.maps.Map(document.getElementById('map-canvas'), {
- fusionTableId:      "12NKH0-cu-AwfpfEiD83u9aGJOXzYKveqkMF0HHwq", // database
- polygon1TableID:    "1BZkfBKRXVqoJi9SxYFWrHCyhzlMC_8dQ3SYZoirq", //commmunes
- polygon2TableID:    "1pigpdu2e4L1WADaoSblfMbKVH-UMLY7Ej9MtvIG9", //lines
-  
- googleApiKey: "AIzaSyAujS5cr5sJzC4IJdGk4tO5YYqINOgX0eg",
- locationColumn: "Geo",
- map_center: [46.74169386912707, 1.6465245019530617],
- locationScope: "france"
- });
-      google.maps.event.addDomListener(window, 'load', initialize);
+      
       var autocomplete = new google.maps.places.Autocomplete(document.getElementById('search_address'));
 
       $(':checkbox').click(function(){
