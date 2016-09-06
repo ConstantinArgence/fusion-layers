@@ -97,6 +97,7 @@ var MapsLib = {
       styleId: 2,
       templateId: 2
     });
+    google.maps.event.addDomListener(window, 'load', initialize);
 
     //reset filters
     $("#search_address").val(MapsLib.convertToPlainString($.address.parameter('address')));
