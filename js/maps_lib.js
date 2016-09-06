@@ -35,8 +35,8 @@ var MapsLib = {
   //example: locationColumn:     "'my location'",
   locationColumn:     "Latitude",
 
-  map_centroid:       new google.maps.LatLng(46.74169386912707, 1.6465245019530617), //center that your map defaults to
-  locationScope:      "Indre",      //geographical area appended to all address searches
+  map_centroid:       new google.maps.LatLng(46.701211,1.2147244), //center that your map defaults to
+  locationScope:      "france",      //geographical area appended to all address searches
   recordName:         "result",       //for showing number of results
   recordNamePlural:   "results",
 
@@ -92,7 +92,7 @@ var MapsLib = {
     MapsLib.polygon2 = new google.maps.FusionTablesLayer({
       query: {
         from:   MapsLib.polygon2TableID,
-        select: "col5"
+        select: "Geo"
       },
       styleId: 2,
       templateId: 2
@@ -121,6 +121,9 @@ var MapsLib = {
     if ($("#rbPolygon1").is(':checked')) {
       MapsLib.polygon1.setMap(map);
       MapsLib.setDemographicsLabels("0&ndash;2000", "2000&ndash;6000", "+6000"); //MODIFY to match 3 buckets in GFT
+    }
+    if ($("#rbPolygon2").is(':checked')) {   //the Off statement does not contain a setMap
+      MapsLib.setDemographicsLabels("&ndash;", "&ndash;", "&ndash;");
     }
     
     if ($("#rbPolygonOff").is(':checked')) {   //the Off statement does not contain a setMap
