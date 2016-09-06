@@ -77,7 +77,7 @@ var MapsLib = {
     MapsLib.searchrecords = null;
 
     //MODIFY to match 3-bucket GFT values of pre-checked polygon1  - see also further below
-    MapsLib.setDemographicsLabels (">500", ">900",  ">2k", ">10k", "+10k");
+    MapsLib.setDemographicsLabels (">500", ">2k", "+10k");
 
 
     // MODIFY if needed: defines background polygon1 
@@ -112,7 +112,7 @@ var MapsLib = {
     // MODIFY if needed: shows background polygon layer depending on which checkbox is selected
     if ($("#rbPolygon1").is(':checked')) {
       MapsLib.polygon1.setMap(map);
-      MapsLib.setDemographicsLabels(">500", ">900",  ">2k", ">10k", "+10k"); //MODIFY to match 3 buckets in GFT
+      MapsLib.setDemographicsLabels(">500", ">2k", "+10k"); //MODIFY to match 3 buckets in GFT
     }
   
     if ($("#rbPolygonOff").is(':checked')) {   //the Off statement does not contain a setMap
@@ -247,21 +247,15 @@ MapsLib.whereClause += " AND 'Km' <= '" + $("#Km-selected-end").html() + "'";
       MapsLib.searchRadiusCircle.setMap(null);
   },
 
-  setDemographicsLabels: function(1, 3, 5, 7, 9) {
-    $('#legend-1').fadeOut('fast', function(){
-      $("#legend-1").html(1);
+  setDemographicsLabels: function(left, middle, right) {
+    $('#legend-left').fadeOut('fast', function(){
+      $("#legend-left").html(left);
     }).fadeIn('fast');
-    $('#legend-3').fadeOut('fast', function(){
-      $("#legend-3").html(3);
+    $('#legend-middle').fadeOut('fast', function(){
+      $("#legend-middle").html(middle);
     }).fadeIn('fast');
-    $('#legend-5').fadeOut('fast', function(){
-      $("#legend-5").html(5);
-    }).fadeIn('fast');
-    $('#legend-7').fadeOut('fast', function(){
-      $("#legend-7").html(7);
-    }).fadeIn('fast');
-    $('#legend-9').fadeOut('fast', function(){
-      $("#legend-9").html(9);
+    $('#legend-right').fadeOut('fast', function(){
+      $("#legend-right").html(right);
     }).fadeIn('fast');
   },
 
