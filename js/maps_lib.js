@@ -247,15 +247,21 @@ MapsLib.whereClause += " AND 'Km' <= '" + $("#Km-selected-end").html() + "'";
       MapsLib.searchRadiusCircle.setMap(null);
   },
 
-  setDemographicsLabels: function(left, middle, right) {
-    $('#legend-left').fadeOut('fast', function(){
-      $("#legend-left").html(left);
+  setDemographicsLabels: function(1, 3, 5, 7, 9) {
+    $('#legend-1').fadeOut('fast', function(){
+      $("#legend-1").html(1);
     }).fadeIn('fast');
-    $('#legend-middle').fadeOut('fast', function(){
-      $("#legend-middle").html(middle);
+    $('#legend-3').fadeOut('fast', function(){
+      $("#legend-3").html(3);
     }).fadeIn('fast');
-    $('#legend-right').fadeOut('fast', function(){
-      $("#legend-right").html(right);
+    $('#legend-5').fadeOut('fast', function(){
+      $("#legend-5").html(5);
+    }).fadeIn('fast');
+    $('#legend-7').fadeOut('fast', function(){
+      $("#legend-7").html(7);
+    }).fadeIn('fast');
+    $('#legend-9').fadeOut('fast', function(){
+      $("#legend-9").html(9);
     }).fadeIn('fast');
   },
 
