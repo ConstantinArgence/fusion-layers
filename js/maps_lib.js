@@ -92,7 +92,7 @@ var MapsLib = {
     MapsLib.polygon2 = new google.maps.FusionTablesLayer({
       query: {
         from:   MapsLib.polygon2TableID,
-        select: "Geo"
+        select: "col4"
       },
       styleId: 2,
       templateId: 2
@@ -164,10 +164,10 @@ if ( $("#cbType4").is(':checked')) searchType += "4,";
 if ( $("#cbType5").is(':checked')) searchType += "5,";
 if ( $("#cbType6").is(':checked')) searchType += "6,";
 if ( $("#cbType7").is(':checked')) searchType += "7,";
-whereClause += " AND " + searchType.slice(0, searchType.length - 1) + ")";
+fusionTableId.whereClause += " AND " + searchType.slice(0, searchType.length - 1) + ")";
 
-whereClause += " AND 'Km' >= '" + $("#Km-selected-start").html() + "'";
-whereClause += " AND 'Km' <= '" + $("#Km-selected-end").html() + "'";
+fusionTableId.whereClause += " AND 'Km' >= '" + $("#Km-selected-start").html() + "'";
+fusionTableId.whereClause += " AND 'Km' <= '" + $("#Km-selected-end").html() + "'";
     //-------end of custom filters--------
 
     if (address != "") {
