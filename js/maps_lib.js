@@ -77,7 +77,7 @@ var MapsLib = {
     MapsLib.searchrecords = null;
 
     //MODIFY to match 3-bucket GFT values of pre-checked polygon1  - see also further below
-    MapsLib.setDemographicsLabels ("0&ndash;500", "500&ndash;900",  "900&ndash;2k", "2k&ndash;10k", "+10k");;
+    MapsLib.setDemographicsLabels (">500", ">900",  ">2k", ">10k", "+10k");
 
 
     // MODIFY if needed: defines background polygon1 
