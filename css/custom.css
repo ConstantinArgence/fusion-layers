@@ -13,8 +13,8 @@ a:hover { color: #4B58A6; }
 #legend-7 { border-top: 10px solid #374593; }
 #legend-9 { border-top: 10px solid #050C70; }
 
-#polygon-legend { background: none; clear: both; margin-bottom: 0.3em; padding: 8px 0 0 0; margin: 10px 0 0 0; list-style: none; }
-#polygon-legend li { width: 20%; float: left; margin: 0 1% 10px 0; white-space: nowrap; text-align: center; font-size: 11px; color: #77787b; }
+#polygon-legend { background: none; clear: both; margin-bottom: 0.3em; padding: 8px 0 0 0; margin: 5px 0 0 0; list-style: none; }
+#polygon-legend li { width: 15%; float: left; margin: 0 1% 10px 0; white-space: nowrap; text-align: center; font-size: 11px; color: #77787b; }
 
 .filter-yellow { background-color: #FBF358; }
 .filter-green { background-color: #00E13C; }
