@@ -21,10 +21,7 @@ var MapsLib = {
 
   //the encrypted Table ID of your Fusion Table (found under File => About)
   //NOTE: numeric IDs will be deprecated soon
- var this = {
-  fusionTableId:      "12NKH0-cu-AwfpfEiD83u9aGJOXzYKveqkMF0HHwq",
-  }// Database
-  fusionTableId:      "12NKH0-cu-AwfpfEiD83u9aGJOXzYKveqkMF0HHwq",
+   fusionTableId:      "12NKH0-cu-AwfpfEiD83u9aGJOXzYKveqkMF0HHwq", // Database
   polygon1TableID:    "1BZkfBKRXVqoJi9SxYFWrHCyhzlMC_8dQ3SYZoirq", //Communes
  
 
@@ -140,7 +137,7 @@ var MapsLib = {
         $("#Km-selected-end").html(ui.values[1]);
     },
     stop: function(event, ui) {
-     this.doSearch();
+     MapsLib.doSearch();
     }
 });
        
@@ -160,8 +157,8 @@ if ( $("#cbType9").is(':checked')) searchType += "9,";
 if ( $("#cbType10").is(':checked')) searchType += "10,";
 MapsLib.whereClause += " AND " + searchType.slice(0, searchType.length - 1) + ")";
 
-this.whereClause += " AND 'Km' >= '" + $("#Km-selected-start").html() + "'";
-this.whereClause += " AND 'Km' <= '" + $("#Km-selected-end").html() + "'";
+MapsLib.whereClause += " AND 'Km' >= '" + $("#Km-selected-start").html() + "'";
+MapsLib.whereClause += " AND 'Km' <= '" + $("#Km-selected-end").html() + "'";
     //-------end of custom filters--------
 
     if (address != "") {
