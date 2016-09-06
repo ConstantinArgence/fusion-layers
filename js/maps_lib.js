@@ -127,7 +127,7 @@ var MapsLib = {
 
     //-----custom filters-------
     var self = this;
-   this.fusionTableId = options.fusionTableId || "12NKH0-cu-AwfpfEiD83u9aGJOXzYKveqkMF0HHwq",
+   this.fusionTableId =  "12NKH0-cu-AwfpfEiD83u9aGJOXzYKveqkMF0HHwq",
    
     $("#Km-slider").slider({
     orientation: "horizontal",
@@ -159,7 +159,7 @@ if ( $("#cbType7").is(':checked')) searchType += "7,";
 if ( $("#cbType8").is(':checked')) searchType += "8,";
 if ( $("#cbType9").is(':checked')) searchType += "9,";
 if ( $("#cbType10").is(':checked')) searchType += "10,";
-MapsLib.whereClause += " AND " + searchType.slice(0, searchType.length - 1) + ")";
+self.whereClause += " AND " + searchType.slice(0, searchType.length - 1) + ")";
 
 self.whereClause += " AND 'Km' >= '" + $("#Km-selected-start").html() + "'";
 self.whereClause += " AND 'Km' <= '" + $("#Km-selected-end").html() + "'";
