@@ -76,7 +76,7 @@ var MapsLib = {
     MapsLib.searchrecords = null;
 
     //MODIFY to match 3-bucket GFT values of pre-checked polygon1  - see also further below
-    MapsLib.setDemographicsLabels (">500", ">2k", "+10k");
+    MapsLib.setDemographicsLabels ("<500", "<2k", "+10k");
 
 
     // MODIFY if needed: defines background polygon1 
@@ -111,7 +111,7 @@ var MapsLib = {
     // MODIFY if needed: shows background polygon layer depending on which checkbox is selected
     if ($("#rbPolygon1").is(':checked')) {
       MapsLib.polygon1.setMap(map);
-      MapsLib.setDemographicsLabels(">500", ">2k", "+10k"); //MODIFY to match 3 buckets in GFT
+      MapsLib.setDemographicsLabels("<500", "<2k", "+10k"); //MODIFY to match 3 buckets in GFT
     }
   
     if ($("#rbPolygonOff").is(':checked')) {   //the Off statement does not contain a setMap
