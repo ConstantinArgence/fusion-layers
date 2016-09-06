@@ -157,8 +157,8 @@ if ( $("#cbType9").is(':checked')) searchType += "9,";
 if ( $("#cbType10").is(':checked')) searchType += "10,";
 whereClause += " AND " + searchType.slice(0, searchType.length - 1) + ")";
 
-whereClause += " AND 'Km' >= '" + $("#Km-selected-start").html() + "'";
-whereClause += " AND 'Km' <= '" + $("#Km-selected-end").html() + "'";
+MapsLib.whereClause += " AND 'Km' >= '" + $("#Km-selected-start").html() + "'";
+MapsLib.whereClause += " AND 'Km' <= '" + $("#Km-selected-end").html() + "'";
     //-------end of custom filters--------
 
     if (address != "") {
