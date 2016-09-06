@@ -13,8 +13,9 @@
 // Enable the visual refresh
 google.maps.visualRefresh = true;
 
-var MapsLib = MapsLib || {};
-var MapsLib = {
+var MapsLib = MapsLib {
+  var self = fusionTableId  || {};
+var MapsLib = 
 
   //Setup section - put your Fusion Table details here
   //Using the v1 Fusion Tables API. See https://developers.google.com/fusiontables/docs/v1/migration_guide for more info
@@ -138,7 +139,7 @@ var MapsLib = {
         $("#Km-selected-end").html(ui.values[1]);
     },
     stop: function(event, ui) {
-     fusionTableId.doSearch();
+     self.doSearch();
     }
 });
        
@@ -158,8 +159,8 @@ if ( $("#cbType9").is(':checked')) searchType += "9,";
 if ( $("#cbType10").is(':checked')) searchType += "10,";
 MapsLib.whereClause += " AND " + searchType.slice(0, searchType.length - 1) + ")";
 
-fusionTableId.whereClause += " AND 'Km' >= '" + $("#Km-selected-start").html() + "'";
-fusionTableId.whereClause += " AND 'Km' <= '" + $("#Km-selected-end").html() + "'";
+self.whereClause += " AND 'Km' >= '" + $("#Km-selected-start").html() + "'";
+self.whereClause += " AND 'Km' <= '" + $("#Km-selected-end").html() + "'";
     //-------end of custom filters--------
 
     if (address != "") {
