@@ -131,14 +131,16 @@ var MapsLib = {
     min: 0,
     max: 60,
     values: [0, 60],
-    step: 5,
+    step: 60,
     slide: function (event, ui) {
         $("#Km-selected-start").html(ui.values[0]);
         $("#Km-selected-end").html(ui.values[1]);
     },
-    stop: function(event, ui) {
-    fusionTableId.doSearch();
-    }
+  function doSearch()  
+    {
+	searchStr = "SELECT Km FROM " + fusionTableId + " WHERE Km not equal to ''";
+		searchStr += " AND 'Km' >= " + $( "#Km-slider" ).slider( "values", 0 ) + " AND 'Km' <= " + $( "#Km-slider" ).slider( "values", 1 );
+    
 });
        
 
