@@ -132,7 +132,6 @@ var MapsLib = {
     max: 60,
     values: [0, 60],
     step: 5,
-    data: {fusionTableId}
     slide: function (event, ui) {
         $("#Km-selected-start").html(ui.values[0]);
         $("#Km-selected-end").html(ui.values[1]);
