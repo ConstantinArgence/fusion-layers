@@ -137,7 +137,7 @@ var MapsLib = {
         $("#Km-selected-end").html(ui.values[1]);
     },
     stop: function(event, ui) {
-    MapsLib.fusiontableid.doSearch();
+    doSearch();
     }
 });
        
@@ -157,8 +157,8 @@ if ( $("#cbType9").is(':checked')) searchType += "9,";
 if ( $("#cbType10").is(':checked')) searchType += "10,";
 whereClause += " AND " + searchType.slice(0, searchType.length - 1) + ")";
 
-MapsLib.fusiontableid.whereClause += " AND 'Km' >= '" + $("#Km-selected-start").html() + "'";
-MapsLib.fusiontableid.whereClause += " AND 'Km' <= '" + $("#Km-selected-end").html() + "'";
+whereClause += " AND 'Km' >= '" + $("#Km-selected-start").html() + "'";
+whereClause += " AND 'Km' <= '" + $("#Km-selected-end").html() + "'";
     //-------end of custom filters--------
 
     if (address != "") {
