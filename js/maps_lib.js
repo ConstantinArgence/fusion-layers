@@ -138,7 +138,7 @@ var MapsLib = {
     },
   doSearch()  
     {
-	searchStr = "SELECT Km FROM " + fusionTableId + " WHERE Km not equal to ''";
+	searchStr = "SELECT Km FROM " + MapsLib.fusionTableId + " WHERE Km not equal to ''";
 		searchStr += " AND 'Km' >= " + $( "#Km-slider" ).slider( "values", 0 ) + " AND 'Km' <= " + $( "#Km-slider" ).slider( "values", 1 );
     
 });
