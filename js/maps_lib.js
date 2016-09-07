@@ -133,12 +133,14 @@ var MapsLib = {
     values: [0, 60],
     step: 5,
     slide: function (event, ui) {
-        $("#Km-selected-start").html(ui.values[0]);
-        $("#Km-selected-end").html(ui.values[1]);
+        $("#Km").val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+      }
+    });
+    $( "#Km" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
+      " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+        
     },
-    stop: function(event, ui) {
-    fusionTableId.doSearch();
-    }
+    
 });
        
 
